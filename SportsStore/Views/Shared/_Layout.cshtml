@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/fontawesome/css/font-awesome.css" rel="stylesheet" />
+    <title>SportsStore</title>
+</head>
+<body>
+    <div class="navbar navbar-inverse" role="navigation">
+        <a class="navbar-brand" href="#">SPORTS STORE</a>
+        <a asp-action="List" asp-controller="Order" class="navbar-brand">List Order</a>
+        <a asp-action="Index" asp-controller="Admin" class="navbar-brand">Admin List</a>
+        <div class="pull-right">
+            @await Component.InvokeAsync("CartSummary")
+        </div>
+    </div>
+    <div class="row panel">
+        <div id="categories" class="col-xs-3">
+            @await Component.InvokeAsync("NavigationMenu")
+        </div>
+        <div class="col-xs-8">
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>
